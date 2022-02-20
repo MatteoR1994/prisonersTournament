@@ -1,5 +1,6 @@
 const BaseBot = require("./baseBot");
-const BotMaf = require("./botMaf");
+// const BotMaf = require("./botMaf");
+const StrangeTwin = require("./strangeTwin");
 const StrangeBot = require("./strangeBot");
 const Camorra = require("./camorra")
 const FancyBot = require("./fancyBot")
@@ -99,7 +100,8 @@ function calculatePoints(myChoose, enemyChoose) {
     } else if (myChoose === 1 && enemyChoose === 0) {
         return 0;
     } else if (myChoose === 0 && enemyChoose === 1) {
-        return 5;
+        // return 5;
+        return 4;
     } else {
         return 1;
     }
@@ -112,7 +114,8 @@ function createFirstGeneration(params) {
     for (let i = 0; i < 10; i++) {
         const bot = new StrangeBot();
         const bot2 = new BaseBot();
-        const bot1 = new BotMaf();
+        // const bot1 = new BotMaf();
+        const bot1 = new StrangeTwin();
         const bot3 = new Camorra();
         const bot4 = new FancyBot();
         const bot5 = new BandaBassotti();
@@ -121,6 +124,8 @@ function createFirstGeneration(params) {
 
 
         players.push(bot1, bot3, bot4, bot5, bot6, bot7, bot, bot2);
+        //players.push(bot1, bot3, bot4, bot5, bot6, bot7, bot2); // Senza StrangeBot
+        //players.push(bot1, bot3, bot4, bot5, bot6, bot, bot2); // Senza GoogBot
     }
 
     shuffleArray(players);
